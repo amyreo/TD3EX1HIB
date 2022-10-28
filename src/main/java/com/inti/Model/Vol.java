@@ -3,6 +3,7 @@ package com.inti.Model;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -28,7 +29,7 @@ public class Vol implements java.io.Serializable {
 	@JoinColumn(name = "idaeroport")
 	private Aeroport aeroport;
 
-	@OneToMany(mappedBy = "vol", targetEntity = Reservation.class)
+	@OneToMany(mappedBy = "vol", targetEntity = Reservation.class, cascade = CascadeType.PERSIST)
 	private List<Reservation> reservation = new ArrayList<>();
 
 	@ManyToMany

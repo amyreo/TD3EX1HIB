@@ -167,3 +167,21 @@
 2022-Oct-27 17:20:11 PM [main] DEBUG org.hibernate.SQL - insert into CompagnieAerienne_Vol (idVol, idCompagnie) values (?, ?)
 2022-Oct-27 17:20:11 PM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [4]
 2022-Oct-27 17:20:11 PM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [INTEGER] - [53]
+2022-Oct-28 11:07:00 AM [main] DEBUG org.hibernate.SQL - insert into Reservation (idcwlient, dateR, numR, idP, idVol, idR) values (?, ?, ?, ?, ?, ?)
+2022-Oct-28 11:07:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [null]
+2022-Oct-28 11:07:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [12-05-2022]
+2022-Oct-28 11:07:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [1534M]
+2022-Oct-28 11:07:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [INTEGER] - [null]
+2022-Oct-28 11:07:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [INTEGER] - [null]
+2022-Oct-28 11:07:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [INTEGER] - [5]
+2022-Oct-28 11:12:30 AM [main] DEBUG org.hibernate.SQL - insert into Aeroport (nomaeroport, idVille, idaeroport) values (?, ?, ?)
+2022-Oct-28 11:12:30 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [VARCHAR] - [Marseille]
+2022-Oct-28 11:12:30 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [INTEGER] - [null]
+2022-Oct-28 11:12:30 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [INTEGER] - [45]
+2022-Oct-28 11:14:00 AM [main] DEBUG org.hibernate.SQL - insert into Vol (idaeroport, datearrivee, datedepart, heurearrivee, heuredepart, idvol) values (?, ?, ?, ?, ?, ?)
+2022-Oct-28 11:14:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [1] as [INTEGER] - [null]
+2022-Oct-28 11:14:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [2] as [VARCHAR] - [15-6-90]
+2022-Oct-28 11:14:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [3] as [VARCHAR] - [15-6-90]
+2022-Oct-28 11:14:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [4] as [VARCHAR] - [14h12]
+2022-Oct-28 11:14:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [5] as [VARCHAR] - [12h45]
+2022-Oct-28 11:14:00 AM [main] TRACE org.hibernate.type.descriptor.sql.BasicBinder - binding parameter [6] as [INTEGER] - [48]
