@@ -28,6 +28,10 @@ public class Vol implements java.io.Serializable {
 	private String datearrivee;
 	private String heurearrivee;
 
+	
+	@OneToMany(mappedBy = "vol")
+	private List<InfosEscale> infosEscale;
+	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "InfosEscale", joinColumns = @JoinColumn(name = "Vol"), inverseJoinColumns = @JoinColumn(name = "Aeroport"))
 	private List<Aeroport> aeroport;
@@ -130,6 +134,14 @@ public class Vol implements java.io.Serializable {
 
 	public void setCompagnie_Aerienne(List<CompagnieAerienne> compagnie_Aerienne) {
 		this.compagnieAerienne = compagnie_Aerienne;
+	}
+
+	public List<InfosEscale> getInfosEscale() {
+		return infosEscale;
+	}
+
+	public void setInfosEscale(List<InfosEscale> infosEscale) {
+		this.infosEscale = infosEscale;
 	}
 
 }

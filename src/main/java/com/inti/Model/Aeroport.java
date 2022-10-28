@@ -22,6 +22,9 @@ public class Aeroport implements java.io.Serializable {
 	private int idaeroport;
 	private String nomaeroport;
 
+	@OneToMany(mappedBy = "aeroport")
+	private List<InfosEscale> infosEscale;
+	
 	@OneToOne
 	@JoinColumn(name = "idVille")
 	private Ville ville;
@@ -77,6 +80,14 @@ public class Aeroport implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "Aeroport [idaeroport=" + idaeroport + ", nomaeroport=" + nomaeroport + "]";
+	}
+
+	public List<InfosEscale> getInfosEscale() {
+		return infosEscale;
+	}
+
+	public void setInfosEscale(List<InfosEscale> infosEscale) {
+		this.infosEscale = infosEscale;
 	}
 
 }
