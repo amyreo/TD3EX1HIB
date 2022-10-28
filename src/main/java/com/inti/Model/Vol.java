@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -15,6 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Vol implements java.io.Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -25,11 +28,11 @@ public class Vol implements java.io.Serializable {
 	private String datearrivee;
 	private String heurearrivee;
 
-	@ManyToOne
-	@JoinColumn(name = "idaeroport")
-	private Aeroport aeroport;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "InfosEscale", joinColumns = @JoinColumn(name = "Vol"), inverseJoinColumns = @JoinColumn(name = "Aeroport"))
+	private List<Aeroport> aeroport;
 
-	@OneToMany(mappedBy = "vol", targetEntity = Reservation.class, cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "vol", targetEntity = Reservation.class, cascade = CascadeType.ALL)
 	private List<Reservation> reservation = new ArrayList<>();
 
 	@ManyToMany
@@ -41,6 +44,12 @@ public class Vol implements java.io.Serializable {
 
 	public Vol(int idvol) {
 		this.idvol = idvol;
+	}
+
+	public Vol(String heuredepart, String heurearrivee) {
+		super();
+		this.heuredepart = heuredepart;
+		this.heurearrivee = heurearrivee;
 	}
 
 	public Vol(int idvol, String datedepart, String heuredepart, String datearrivee, String heurearrivee) {
@@ -91,12 +100,20 @@ public class Vol implements java.io.Serializable {
 		this.heurearrivee = heurearrivee;
 	}
 
-	public Aeroport getAeroport() {
+	public List<Aeroport> getAeroport() {
 		return aeroport;
 	}
 
-	public void setAeroport(Aeroport aeroport) {
+	public void setAeroport(List<Aeroport> aeroport) {
 		this.aeroport = aeroport;
+	}
+
+	public List<CompagnieAerienne> getCompagnieAerienne() {
+		return compagnieAerienne;
+	}
+
+	public void setCompagnieAerienne(List<CompagnieAerienne> compagnieAerienne) {
+		this.compagnieAerienne = compagnieAerienne;
 	}
 
 	public List<Reservation> getReservation() {

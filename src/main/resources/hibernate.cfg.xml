@@ -18,5 +18,6 @@
 		<mapping class="com.inti.Model.Reservation" />
 		<mapping class="com.inti.Model.Passager" />
 		<mapping class="com.inti.Model.Ville" />
+		<mapping class="com.inti.Model.InfosEscale" />
 	</session-factory>
 </hibernate-configuration>

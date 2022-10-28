@@ -7,6 +7,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -24,7 +26,8 @@ public class Aeroport implements java.io.Serializable {
 	@JoinColumn(name = "idVille")
 	private Ville ville;
 
-	@OneToMany(mappedBy = "aeroport", targetEntity = Vol.class)
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "InfosEscale", joinColumns = @JoinColumn(name = "Aeroport"), inverseJoinColumns = @JoinColumn(name = "Vol"))
 	private List<Vol> vol = new ArrayList<>();
 
 	public Aeroport() {
